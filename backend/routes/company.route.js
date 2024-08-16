@@ -5,12 +5,12 @@ import {
   getCompany,
   registerCompany,
   updateCompany,
-} from "../controllers/job.controller.js";
+} from "../controllers/company.controller.js";
 const router = express.Router();
 
 router.route("/register").post(isAuthenticated, registerCompany);
-router.route("/get").post(isAuthenticated, getCompany);
-router.route("/get/:id").post(isAuthenticated, getComapnyById);
-router.route("/update/:id").post(isAuthenticated, updateCompany);
+router.route("/get").get(isAuthenticated, getCompany);
+router.route("/get/:id").get(isAuthenticated, getComapnyById);
+router.route("/update/:id").put(isAuthenticated, updateCompany);
 
 export default router;
