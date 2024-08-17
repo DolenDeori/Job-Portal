@@ -1,7 +1,6 @@
 import React from "react";
 import Navbar from "../shared/Navbar";
 import { Label } from "../ui/label";
-import { Input } from "../ui/input";
 import { RadioGroup, RadioGroupItem } from "../ui/radio-group";
 import { Link } from "react-router-dom";
 
@@ -16,7 +15,7 @@ const Signup = () => {
           </h2>
         </div>
 
-        <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
           <form action="#" method="POST" className="space-y-4">
             <div>
               <label
@@ -94,6 +93,25 @@ const Signup = () => {
                   className="block w-full rounded-md border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>
+            </div>
+
+            <div className="radio-group">
+              <label
+                htmlFor="role"
+                className="block text-sm font-medium leading-6 text-gray-900 mb-2"
+              >
+                Select your role
+              </label>
+              <RadioGroup className="flex gap-3">
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="option-one" id="option-one" />
+                  <Label htmlFor="option-one">Student</Label>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <RadioGroupItem value="option-two" id="option-two" />
+                  <Label htmlFor="option-two">Recruter</Label>
+                </div>
+              </RadioGroup>
             </div>
 
             <div>
