@@ -7,6 +7,8 @@ import { Input } from "../ui/input";
 import axios from "axios";
 import { USER_API_END_POINT } from "../utils/constant";
 import { toast } from "sonner";
+import { useDispatch, useSelector } from "react-redux";
+import { setLoading } from "@/redux/authSlice";
 
 const Signup = () => {
   const [input, setInput] = useState({
@@ -17,6 +19,8 @@ const Signup = () => {
     role: "",
     file: "",
   });
+  const { loading } = useSelector((store) => store.auth);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const changeEventHandler = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });
@@ -33,6 +37,7 @@ const Signup = () => {
     formData.append("password", input.password);
     formData.append("role", input.role);
     try {
+      dispatch(setLoading(true));
       const res = await axios.post(`${USER_API_END_POINT}/register`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
@@ -46,11 +51,13 @@ const Signup = () => {
     } catch (error) {
       console.log(error);
       toast.error(error.response.data.message);
+    } finally {
+      dispatch(setLoading(false));
     }
     console.log(input);
   };
   return (
-    <div>
+    <>
       <Navbar />
       <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -201,14 +208,21 @@ const Signup = () => {
               </RadioGroup>
             </div>
 
-            <div>
-              <button
-                type="submit"
-                className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              >
-                Sign Up
-              </button>
-            </div>
+            {loading ? (
+              <Button className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+                <Loader2 className="mr-2 h-4 w-4 animate-spin " />
+                Please Wait
+              </Button>
+            ) : (
+              <div>
+                <button
+                  type="submit"
+                  className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >
+                  Signup
+                </button>
+              </div>
+            )}
           </form>
 
           <p className="mt-5 text-center text-sm text-gray-500">
@@ -222,7 +236,7 @@ const Signup = () => {
           </p>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
