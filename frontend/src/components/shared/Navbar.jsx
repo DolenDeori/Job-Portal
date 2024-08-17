@@ -15,10 +15,10 @@ const Navbar = () => {
   const user = false;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
-    <div className="bg-white">
+    <div className="fixed z-10 w-full m-auto border-b border-b-gray-800">
       <nav
         aria-label="Global"
-        className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8"
+        className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8"
       >
         <div className="flex lg:flex-1">
           <Link href="#" className="-m-1.5 p-1.5">
@@ -41,22 +41,13 @@ const Navbar = () => {
           </button>
         </div>
         <div className="hidden lg:flex lg:gap-x-12">
-          <Link
-            to={"/"}
-            className="text-sm font-semibold leading-6 text-gray-900"
-          >
+          <Link to={"/"} className="text-sm font-semibold leading-6 text-white">
             Home
           </Link>
-          <Link
-            to={"#"}
-            className="text-sm font-semibold leading-6 text-gray-900"
-          >
+          <Link to={"#"} className="text-sm font-semibold leading-6 text-white">
             Jobs
           </Link>
-          <Link
-            to={"#"}
-            className="text-sm font-semibold leading-6 text-gray-900"
-          >
+          <Link to={"#"} className="text-sm font-semibold leading-6 text-white">
             Brows
           </Link>
         </div>
@@ -98,13 +89,13 @@ const Navbar = () => {
           <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-3 lg:transition-all">
             <Link
               to={"/login"}
-              className="text-sm font-semibold leading-6 text-indigo-600 py-2 px-4 rounded border-indigo-600 border hover:bg-gray-100"
+              className="text-sm font-semibold leading-6 text-gray-200 py-2 px-4 rounded border-gray-200 border hover:bg-gray-800"
             >
               Log in <span aria-hidden="true">&rarr;</span>
             </Link>
             <Link
               to={"/signup"}
-              className="text-sm font-semibold leading-6 text-white py-2 px-4 rounded bg-indigo-600 hover:bg-indigo-500"
+              className="text-sm font-semibold leading-6 text-white py-2 px-4 rounded bg-indigo-600 hover:bg-indigo-800"
             >
               Signup
             </Link>
