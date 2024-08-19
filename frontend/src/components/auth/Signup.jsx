@@ -59,9 +59,22 @@ const Signup = () => {
   return (
     <>
       <Navbar />
-      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <h2 className="mt-2 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
+      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 bg-gray-900 relative isolate pt-14 overflow-hidden">
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80"
+        >
+          <div
+            style={{
+              clipPath:
+                "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
+            }}
+            className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ffca4e] to-[#1810b1] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+          />
+        </div>
+
+        <div className="sm:mx-auto sm:w-full sm:max-w-sm mt-10">
+          <h2 className="mt-2 text-center text-2xl font-bold leading-9 tracking-tight text-white">
             Create your account
           </h2>
         </div>
@@ -71,7 +84,7 @@ const Signup = () => {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-sm font-medium leading-6 text-gray-200"
               >
                 Full Name
               </label>
@@ -84,7 +97,8 @@ const Signup = () => {
                   onChange={changeEventHandler}
                   required
                   autoComplete="name"
-                  className="block w-full rounded-md border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  placeholder="Your fullname"
+                  className="block w-full rounded-md outline-none ring-1 focus:ring-2 bg-indigo-800 bg-opacity-10 backdrop-blur-lg border-0 py-1.5 px-1.5 text-gray-200 placeholder:text-gray-500 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -92,7 +106,7 @@ const Signup = () => {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-sm font-medium leading-6 text-gray-200"
               >
                 Email address
               </label>
@@ -105,7 +119,8 @@ const Signup = () => {
                   onChange={changeEventHandler}
                   required
                   autoComplete="email"
-                  className="block w-full rounded-md border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  placeholder="Your Email"
+                  className="block w-full rounded-md outline-none ring-1 focus:ring-2 bg-indigo-800 bg-opacity-10 backdrop-blur-lg border-0 py-1.5 px-1.5 text-gray-200 placeholder:text-gray-500 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -113,7 +128,7 @@ const Signup = () => {
             <div>
               <label
                 htmlFor="email"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-sm font-medium leading-6 text-gray-200"
               >
                 Phone Number
               </label>
@@ -126,7 +141,8 @@ const Signup = () => {
                   onChange={changeEventHandler}
                   required
                   autoComplete="tel"
-                  className="block w-full rounded-md border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  placeholder="Your phonenumber"
+                  className="block w-full rounded-md outline-none ring-1 focus:ring-2 bg-indigo-800 bg-opacity-10 backdrop-blur-lg border-0 py-1.5 px-1.5 text-gray-200 placeholder:text-gray-500 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -135,9 +151,9 @@ const Signup = () => {
               <div className="flex items-center justify-between">
                 <label
                   htmlFor="password"
-                  className="block text-sm font-medium leading-6 text-gray-900"
+                  className="block text-sm font-medium leading-6 text-gray-200"
                 >
-                  Password
+                  Create Password
                 </label>
               </div>
               <div className="mt-2">
@@ -149,7 +165,8 @@ const Signup = () => {
                   onChange={changeEventHandler}
                   required
                   autoComplete="current-password"
-                  className="block w-full rounded-md border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  placeholder="Create Password"
+                  className="block w-full rounded-md outline-none ring-1 focus:ring-2 bg-indigo-800 bg-opacity-10 backdrop-blur-lg border-0 py-1.5 px-1.5 text-gray-200 placeholder:text-gray-500 sm:text-sm sm:leading-6"
                 />
               </div>
             </div>
@@ -157,7 +174,7 @@ const Signup = () => {
               <div className="flex items-center justify-between">
                 <label
                   htmlFor="password"
-                  className="block text-sm font-medium leading-6 text-gray-900"
+                  className="block text-sm font-medium leading-6 text-gray-200"
                 >
                   Profile Pic
                 </label>
@@ -168,7 +185,7 @@ const Signup = () => {
                   type="file"
                   accept="image/*"
                   onChange={changeFileHandler}
-                  className="cursor-pointer block w-full rounded-md border-0 py-1.5 px-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  className="block w-full rounded-md outline-none ring-1 focus:ring-2 bg-indigo-800 bg-opacity-10 backdrop-blur-lg border-0 py-1.5 px-1.5 text-gray-200 placeholder:text-gray-500 sm:text-sm sm:leading-6 cursor-pointer"
                 />
               </div>
             </div>
@@ -176,11 +193,11 @@ const Signup = () => {
             <div className="radio-group">
               <label
                 htmlFor="role"
-                className="block text-sm font-medium leading-6 text-gray-900"
+                className="block text-sm font-medium leading-6 text-gray-200"
               >
                 Select your role
               </label>
-              <RadioGroup className="flex gap-3">
+              <RadioGroup className="flex gap-3 text-white">
                 <div className="flex items-center space-x-2">
                   <Input
                     type="radio"
@@ -209,7 +226,7 @@ const Signup = () => {
             </div>
 
             {loading ? (
-              <Button className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
+              <Button className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-600">
                 <Loader2 className="mr-2 h-4 w-4 animate-spin " />
                 Please Wait
               </Button>
@@ -217,7 +234,7 @@ const Signup = () => {
               <div>
                 <button
                   type="submit"
-                  className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                  className="transition ease-in-out duration-200 flex w-full justify-center rounded-md bg-white px-3 py-1.5 text-sm font-semibold leading-6 text-gray-800 shadow-sm hover:bg-indigo-800 hover:text-white"
                 >
                   Signup
                 </button>
@@ -234,6 +251,19 @@ const Signup = () => {
               Login
             </Link>
           </p>
+        </div>
+
+        <div
+          aria-hidden="true"
+          className="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]"
+        >
+          <div
+            style={{
+              clipPath:
+                "polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)",
+            }}
+            className="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#32fe7d] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]"
+          />
         </div>
       </div>
     </>

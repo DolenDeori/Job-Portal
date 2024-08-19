@@ -15,7 +15,7 @@ const Navbar = () => {
   const user = false;
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
-    <div className="fixed z-10 w-full m-auto border-b border-b-gray-800">
+    <div className="fixed z-10 w-full m-auto border-b border-b-gray-800 bg-gray-900">
       <nav
         aria-label="Global"
         className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8"
@@ -44,10 +44,16 @@ const Navbar = () => {
           <Link to={"/"} className="text-sm font-semibold leading-6 text-white">
             Home
           </Link>
-          <Link to={"#"} className="text-sm font-semibold leading-6 text-white">
-            Jobs
+          <Link
+            to={"/jobs"}
+            className="text-sm font-semibold leading-6 text-white"
+          >
+            All Jobs
           </Link>
-          <Link to={"#"} className="text-sm font-semibold leading-6 text-white">
+          <Link
+            to={"/brows"}
+            className="text-sm font-semibold leading-6 text-white"
+          >
             Brows
           </Link>
         </div>
@@ -63,7 +69,7 @@ const Navbar = () => {
                   <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
               </PopoverTrigger>
-              <PopoverContent>
+              <PopoverContent className="bg-gray-900 text-white border-gray-700">
                 <div className=" flex gap-4 items-center">
                   <div>
                     <h4 className="font-medium">Dolen Deori</h4>
@@ -79,7 +85,7 @@ const Navbar = () => {
                   </div>
                   <div className="flex items-center cursor-pointer">
                     <ArrowRightEndOnRectangleIcon className="h-5 mr-2" />
-                    <Link to={"#"}>Login</Link>
+                    <Link to={"#"}>Logout</Link>
                   </div>
                 </div>
               </PopoverContent>
@@ -137,13 +143,13 @@ const Navbar = () => {
                   Home
                 </Link>
                 <Link
-                  to="#"
+                  to="/jobs"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Jobs
                 </Link>
                 <Link
-                  to="#"
+                  to="/brows"
                   className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
                 >
                   Brows
