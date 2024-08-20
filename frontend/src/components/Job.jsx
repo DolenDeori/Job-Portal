@@ -4,10 +4,13 @@ import { BookmarkIcon, ShareIcon } from "@heroicons/react/24/outline";
 import { Avatar, AvatarImage } from "./ui/avatar";
 import { Badge } from "./ui/badge";
 import { ArrowUpRightIcon } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 const Job = () => {
+  const navigate = useNavigate();
+  const jobId = "323";
   return (
-    <div className=" bg-gray-800 rounded-md p-3 text-white border border-gray-700">
+    <div className="bg-gray-800 shadow-xl rounded-md p-3 text-white border border-gray-700">
       <div className="flex justify-between items-center">
         <h1 className="text-xl">
           Software Engineer, Kernel and Firmware, Silicon
@@ -60,7 +63,10 @@ const Job = () => {
       </div>
 
       <div className="button-group mt-5">
-        <Button className="flex items-center justify-center gap-1">
+        <Button
+          className="flex items-center justify-center gap-1"
+          onClick={() => navigate(`/description/${jobId}`)}
+        >
           Learn More <ArrowUpRightIcon className="h-4 w-4" />
         </Button>
       </div>

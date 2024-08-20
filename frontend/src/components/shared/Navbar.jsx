@@ -10,9 +10,11 @@ import {
 import { Link } from "react-router-dom";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { Dialog, DialogPanel } from "@headlessui/react";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
-  const user = false;
+  // const user = false;
+  const user = useSelector((store) => store.auth);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <div className="fixed z-10 w-full m-auto border-b border-b-gray-800 bg-gray-900">
@@ -21,13 +23,10 @@ const Navbar = () => {
         className="mx-auto flex max-w-7xl items-center justify-between p-4 lg:px-8"
       >
         <div className="flex lg:flex-1">
-          <Link href="#" className="-m-1.5 p-1.5">
-            <span className="sr-only">Your Company</span>
-            <img
-              alt=""
-              src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-              className="h-8 w-auto"
-            />
+          <Link to="/" className="-m-1.5 p-1.5">
+            <span className="text-white font-bold">
+              JOB <span className="text-indigo-400">HUNT</span>
+            </span>
           </Link>
         </div>
         <div className="flex lg:hidden">
@@ -59,7 +58,7 @@ const Navbar = () => {
         </div>
 
         {/* User authentication */}
-        {user ? (
+        {user.user ? (
           <div className="hidden lg:flex lg:flex-1 lg:justify-end lg:gap-3 lg:transition-all">
             <Popover>
               <PopoverTrigger>
@@ -81,7 +80,7 @@ const Navbar = () => {
                 <div className="flex flex-col items-start my-2 space-y-2">
                   <div className="flex items-center cursor-pointer mt-2">
                     <UserIcon className="h-5 mr-2"></UserIcon>
-                    <Link to={"#"}>View Profile</Link>
+                    <Link to={"/profile"}>View Profile</Link>
                   </div>
                   <div className="flex items-center cursor-pointer">
                     <ArrowRightEndOnRectangleIcon className="h-5 mr-2" />
@@ -114,15 +113,12 @@ const Navbar = () => {
         className="lg:hidden"
       >
         <div className="fixed inset-0 z-10" />
-        <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+        <DialogPanel className="fixed inset-y-0 right-0 z-10 w-full overflow-y-auto bg-gray-900 text-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
           <div className="flex items-center justify-between">
-            <Link href="#" className="-m-1.5 p-1.5">
-              <span className="sr-only">Your Company</span>
-              <img
-                alt=""
-                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
-                className="h-8 w-auto"
-              />
+            <Link to="/" className="-m-1.5 p-1.5">
+              <span className="text-white font-bold">
+                JOB <span className="text-indigo-400">HUNT</span>
+              </span>
             </Link>
             <button
               type="button"
@@ -138,19 +134,19 @@ const Navbar = () => {
               <div className="space-y-2 py-6">
                 <Link
                   to={"/"}
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-200 hover:bg-gray-50"
                 >
                   Home
                 </Link>
                 <Link
                   to="/jobs"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-200 hover:bg-gray-50"
                 >
                   Jobs
                 </Link>
                 <Link
                   to="/brows"
-                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg px-3 py-2 text-base font-semibold leading-7 text-gray-200 hover:bg-gray-50"
                 >
                   Brows
                 </Link>
@@ -158,7 +154,7 @@ const Navbar = () => {
               <div className="py-2">
                 <Link
                   to={"/login"}
-                  className="-mx-3 block rounded-lg px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg px-3 text-base font-semibold leading-7 text-gray-200 hover:bg-gray-50"
                 >
                   Log in
                 </Link>
@@ -166,7 +162,7 @@ const Navbar = () => {
               <div className="py-2">
                 <Link
                   to={"/signup"}
-                  className="-mx-3 block rounded-lg px-3 text-base font-semibold leading-7 text-gray-900 hover:bg-gray-50"
+                  className="-mx-3 block rounded-lg px-3 text-base font-semibold leading-7 text-gray-200 hover:bg-gray-50"
                 >
                   Signup
                 </Link>
